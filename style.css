@@ -1,0 +1,140 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    overflow-x: hidden;
+}
+html{
+    font-size: 62.5%;
+}
+.container{
+    width: 100vw;
+    height: 80vh;
+    position: relative;
+    overflow: hidden;
+}
+.container .slide .item{
+ display: none;
+}
+.container .slide .item.active{
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+   color: aliceblue;
+    transition: 0.9s ease;
+   display: block;
+}
+.first-content{
+  position: absolute;
+  bottom: 10rem;
+  left: 31rem;
+  font-size: 3.2rem;
+  opacity: 0;
+  animation: animate 1s ease-in-out 1 forwards;
+
+}
+.second-content{
+  position: absolute;
+  bottom: 25rem;
+  left: 5rem;
+  font-size: 2.5rem;
+  width: 23rem;
+  overflow-y: hidden;
+  gap: 1rem;
+}
+.second-content h1{
+  
+    opacity: 0;
+    animation: animate 1s ease-in-out 1 forwards;
+}
+.second-content p{
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.6s 1 forwards;
+}
+.item h1{
+    letter-spacing: .6rem;
+}
+.third-content{
+    position: absolute;
+    font-size: 2.5rem;
+    bottom: 28rem;
+    left: 23rem;
+    opacity: 0;
+    animation: animate 1s ease-in-out 1 forwards;
+}
+
+
+@keyframes animate {
+    from{
+        opacity: 0;
+        transform: translate(0, 100px);
+        filter: blur(33px);
+    }
+    to{
+        opacity: 1;
+        transform: translate(0);
+        filter: blur(0);
+    }
+}
+
+.progress-bars{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    bottom: 3%;
+}
+.bars{
+  width: 15%;
+  height: 10px;
+  border-radius: 2rem;
+  background-color: rgba(161, 161, 161, 0.7);
+  position: relative;
+}
+.bars.active::after{
+    content: "";
+    width: 0;
+    height: 100%;
+    border-radius: 2rem;
+    background-color: rgba(250, 249, 249, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: baranimation 5s linear 1;
+
+}
+@keyframes baranimation {
+    from{
+        width: 0%;
+    }
+    to{
+        width: 100%;
+    }
+}
+@media (max-width: 767px) {
+    html{
+        font-size: 50%;
+    }
+}
+@media (max-width: 575px) {
+    html{
+        font-size: 45%;
+    }
+   .third-content{
+    left: 10rem;
+    bottom: 38rem;
+   }
+   .first-content{
+    left: 8rem;
+    bottom: 38rem;
+   }
+   .second-content{
+    bottom: 38rem;
+   }
+}
